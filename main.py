@@ -7,6 +7,7 @@ import time
 channel = "put channel here"
 webhook = "put webhook link here"
 
+# variables !!!DO NOT EDIT!!!
 html = requests.get(channel + "/videos").text
 lastUrl = "https://www.youtube.com/watch?v=" + re.search('(?<="videoId":").*?(?=")', html).group()
 
