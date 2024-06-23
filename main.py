@@ -8,7 +8,7 @@ channel = "put channel here"
 webhook = "put webhook link here"
 
 # variables !!!DO NOT EDIT!!!
-lastUrl = "osjidfoascdmrosuierpds"
+lastUrl = "null"
 
 while True:
     time.sleep(900) # cooldown to not exceed rate limits TODO: this is a stupid solution, will fix when i get better at programming (or if someone fixes it for me)
