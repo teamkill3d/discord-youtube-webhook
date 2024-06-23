@@ -25,8 +25,8 @@ while True:
     # format and post the data
     data = {
         "content" : "video message goes here" + " " + url,
-        #"username" : "optional, can be configured directly on discord itself",
-        #"avatar_url" : "this is also optional for the same reason"
+        # "username" : "optional, can be configured directly on discord itself",
+        # "avatar_url" : "this is also optional for the same reason"
     }
     result = requests.post(webhook, json = data)
 
