@@ -7,11 +7,11 @@ import time
 channel = "put channel here"
 webhook = "put webhook link here"
 
-# variables !!!DO NOT EDIT!!!
 lastUrl = "null"
 
+# TODO: actually learn how to use youtube's api and other apis in general
 while True:
-    time.sleep(900) # cooldown to not exceed rate limits TODO: this is a stupid solution, will fix when i get better at programming (or if someone fixes it for me)
+    time.sleep(900) # cooldown to not exceed rate limits
     
     # look up the channel's videos and pick out the most recent one
     html = requests.get(channel + "/videos").text
@@ -20,7 +20,7 @@ while True:
     # anti-spam system, check the latest video's url, if the bot has already sent a notification about it, restart the loop
     if url == lastUrl:
         continue
-    lastUrl = url # update the anti-spam system
+    lastUrl = url
     
     # format and post the data
     data = {
