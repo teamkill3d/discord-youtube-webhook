@@ -4,12 +4,11 @@ import re;
 import time;
 
 # config
-channel = "put channel here";
-webhook = "put webhook link here";
+channel = ""; # place channel url here
+webhook = ""; # place webhook url here
 
 lastUrl = "null";
 
-# TODO: actually learn how to use youtube's api and other apis in general
 while True:
     time.sleep(900); # cooldown to not exceed rate limits
     
@@ -17,7 +16,7 @@ while True:
     html = requests.get(channel + "/videos").text;
     url = "https://www.youtube.com/watch?v=" + re.search('(?<="videoId":").*?(?=")', html).group();
     
-    # anti-spam system, check the latest video's url, if the bot has already sent a notification about it, restart the loop
+    # anti-spam
     if url == lastUrl:
         continue;
     lastUrl = url;
@@ -25,8 +24,8 @@ while True:
     # format and post the data
     data = {
         "content" : "video message goes here" + " " + url,
-        # "username" : "optional, can be configured directly on discord itself",
-        # "avatar_url" : "this is also optional for the same reason"
+        # "username" : "", both of these options can be configured on discord itself
+        # "avatar_url" : ""
     }
     result = requests.post(webhook, json = data);
 
